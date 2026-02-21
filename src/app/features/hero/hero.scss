@@ -1,0 +1,63 @@
+$primary-color: #007bff;
+$text-color: #333;
+$bg-color: #f8f9fa;
+
+.hero-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-color;
+  text-align: center;
+
+  /* SCSS Nesting: .hero-content is nested inside .hero-container */
+  .hero-content {
+    max-width: 800px;
+    padding: 20px;
+
+    h1 {
+      font-size: 3rem;
+      color: $text-color;
+
+      .highlight {
+        color: $primary-color;
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 20px 0;
+      color: gray;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+      }
+
+      .btn-primary {
+        background-color: $primary-color;
+        color: white;
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        border: 2px solid $primary-color;
+        color: $primary-color;
+      }
+    }
+  }
+}

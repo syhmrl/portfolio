@@ -1,0 +1,30 @@
+<section class="projects-container">
+  <h2>Featured Work</h2>
+
+  <div class="projects-grid">
+    @for (project of portfolioProjects; track project.id) {
+      <div class="project-card">
+        <div class="card-image-placeholder">
+          <span>{{ project.title }} Image</span>
+        </div>
+
+        <div class="card-content">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+
+          <div class="tech-tags">
+            @for (tech of project.techStack; track tech) {
+              <span class="tag">{{ tech }}</span>
+            }
+          </div>
+
+          <div class="card-actions">
+            @if (project.githubUrl) {
+              <a [href]="project.githubUrl" target="_blank" class="btn btn-github">View GitHub</a>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

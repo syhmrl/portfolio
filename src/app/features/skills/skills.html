@@ -1,0 +1,33 @@
+<section class="skills-container">
+  <h2>Technical Arsenal</h2>
+
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h3>Web Development</h3>
+      <div class="badge-container">
+        @for (skill of webFrameworks; track skill) {
+          <span class="badge">{{ skill }}</span>
+        }
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3>AI & Architecture</h3>
+      <div class="badge-container">
+        @for (skill of aiAndData; track skill) {
+          <span class="badge">{{ skill }}</span>
+        }
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3>Infrastructure & Tools</h3>
+      <div class="badge-container">
+        @for (skill of infrastructure; track skill) {
+          <span class="badge">{{ skill }}</span>
+        }
+      </div>
+    </div>
+
+  </div>
+</section>
