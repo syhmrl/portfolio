@@ -3,7 +3,7 @@
     <a href="#hero">MyPortfolio</a>
   </div>
 
-  <button class="burger-btn" (click)="toggleMenu()">
+  <button class="burger-btn" [class.active]="isMenuOpen" (click)="toggleMenu()">
     <span class="line"></span>
     <span class="line"></span>
     <span class="line"></span>
