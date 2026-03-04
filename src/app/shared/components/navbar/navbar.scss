@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $primary-color: #007bff;
 $nav-bg: rgba(255, 255, 255, 0.95); // Slightly transparent white
 
@@ -49,7 +51,7 @@ $nav-bg: rgba(255, 255, 255, 0.95); // Slightly transparent white
       border-radius: 5px;
 
       &:hover {
-        background-color: darken($primary-color, 10%);
+        background-color: color.adjust($primary-color, $lightness: -10%);
         color: white;
       }
     }
