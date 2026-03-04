@@ -1,15 +1,13 @@
-@use "sass:color";
-
-$primary-color: #007bff;
-
 .contact-container {
   padding: 80px 20px;
-  background-color: #343a40;
-  color: #fff;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-main);
   text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   h2 { font-size: 2.5rem; margin-bottom: 15px; }
-  p { margin-bottom: 40px; color: #ced4da; }
+  p { margin-bottom: 40px; color: var(--text-muted); }
 
   .contact-content {
     display: flex;
@@ -29,23 +27,29 @@ $primary-color: #007bff;
       input, textarea {
         padding: 15px;
         border-radius: 5px;
-        border: none;
+        border: 1px solid var(--border-color);
+        background-color: var(--card-bg);
+        color: var(--text-main);
         outline: none;
         font-family: inherit;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s;
+
+        &:focus {
+          border-color: var(--primary-color);
+        }
       }
 
       .btn-submit {
         padding: 15px;
-        background-color: $primary-color;
+        background-color: var(--primary-color);
         color: white;
         border: none;
         border-radius: 5px;
         font-weight: bold;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition: filter 0.3s;
 
-        // &:hover { background-color: darken($primary-color, 10%); }
-        &:hover { background-color: color.adjust($primary-color, $lightness: -10%); }
+        &:hover { filter: brightness(0.9); }
       }
     }
 
@@ -59,8 +63,8 @@ $primary-color: #007bff;
 
       .link-btn {
         background-color: transparent;
-        border: 2px solid #fff;
-        color: #fff;
+        border: 2px solid var(--text-main);
+        color: var(--text-main);
         padding: 12px 20px;
         text-decoration: none;
         border-radius: 5px;
@@ -68,8 +72,8 @@ $primary-color: #007bff;
         transition: all 0.3s;
 
         &:hover {
-          background-color: #fff;
-          color: #343a40;
+          background-color: var(--text-main);
+          color: var(--bg-color); /* Flips colors on hover! */
         }
       }
     }

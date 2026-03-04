@@ -1,3 +1,32 @@
+/* Default (Light) Theme */
+:root {
+  --primary-color: #007bff;
+  --bg-color: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-main: #333333;
+  --text-muted: #555555;
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --card-bg: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.05);
+  --contact-bg-color: #343a40;
+  --contact-p-color: #ced4da;
+}
+
+/* Dark Theme Overrides */
+/* When the HTML tag has data-theme="dark", these colors replace the ones above */
+[data-theme="dark"] {
+  --primary-color: #339af0; /* Slightly lighter blue for dark mode contrast */
+  --bg-color: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-main: #e0e0e0;
+  --text-muted: #aaaaaa;
+  --nav-bg: rgba(18, 18, 18, 0.95);
+  --card-bg: #1e1e1e;
+  --border-color: rgba(255, 255, 255, 0.05);
+  --contact-bg-color: #cbc5bf;
+  --contact-p-color: #121212;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -11,4 +40,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

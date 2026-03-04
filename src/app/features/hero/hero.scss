@@ -1,38 +1,36 @@
-$primary-color: #007bff;
-$text-color: #333;
-$bg-color: #f8f9fa;
-
 .hero-container {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $bg-color;
+  background-color: var(--bg-secondary); /* Dynamic Background */
   text-align: center;
+  transition: background-color 0.3s ease;
 
-  /* SCSS Nesting: .hero-content is nested inside .hero-container */
   .hero-content {
     max-width: 800px;
     padding: 20px;
 
     h1 {
       font-size: 3rem;
-      color: $text-color;
+      color: var(--text-main); /* Dynamic Text */
+      transition: color 0.3s ease;
 
       .highlight {
-        color: $primary-color;
+        color: var(--primary-color);
       }
     }
 
     h2 {
       font-size: 2rem;
       margin-top: 10px;
+      color: var(--text-main);
     }
 
     p {
       font-size: 1.2rem;
       margin: 20px 0;
-      color: gray;
+      color: var(--text-muted); /* Dynamic Muted Text */
     }
 
     .action-buttons {
@@ -46,17 +44,18 @@ $bg-color: #f8f9fa;
         cursor: pointer;
         border-radius: 5px;
         border: none;
+        transition: all 0.3s ease;
       }
 
       .btn-primary {
-        background-color: $primary-color;
+        background-color: var(--primary-color);
         color: white;
       }
 
       .btn-secondary {
         background-color: transparent;
-        border: 2px solid $primary-color;
-        color: $primary-color;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
       }
     }
   }

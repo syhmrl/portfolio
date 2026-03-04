@@ -1,17 +1,15 @@
-$primary-color: #007bff;
-$bg-light: #f8f9fa;
-
 .skills-container {
   padding: 80px 20px;
-  background-color: $bg-light;
+  background-color: var(--bg-secondary);
   text-align: center;
+  transition: background-color 0.3s ease;
 
   h2 {
     font-size: 2.5rem;
     margin-bottom: 40px;
+    color: var(--text-main);
   }
 
-  /* CSS Grid for the 3 columns */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -20,15 +18,17 @@ $bg-light: #f8f9fa;
     margin: 0 auto;
 
     .skill-category {
-      background: #fff;
+      background: var(--card-bg); /* Adapts to dark cards */
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border: 1px solid var(--border-color); /* Adds subtle border for dark mode */
+      transition: background-color 0.3s ease, border-color 0.3s ease;
 
       h3 {
         font-size: 1.2rem;
         margin-bottom: 15px;
-        color: #333;
+        color: var(--text-main);
       }
 
       .badge-container {
@@ -38,8 +38,9 @@ $bg-light: #f8f9fa;
         justify-content: center;
 
         .badge {
-          background-color: rgba($primary-color, 0.1);
-          color: $primary-color;
+          background-color: transparent;
+          border: 1px solid var(--primary-color);
+          color: var(--primary-color);
           padding: 8px 12px;
           border-radius: 20px;
           font-size: 0.9rem;
