@@ -15,8 +15,8 @@ $nav-bg: rgba(255, 255, 255, 0.95); // Slightly transparent white
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  z-index: 1000; /* Ensures it stays on top of all other content */
-  backdrop-filter: blur(5px); /* Cool glass effect */
+  z-index: 1000;
+  backdrop-filter: blur(5px);
 
   .nav-logo a {
     font-size: 1.5rem;
@@ -25,6 +25,25 @@ $nav-bg: rgba(255, 255, 255, 0.95); // Slightly transparent white
     text-decoration: none;
     cursor: pointer;
   }
+
+  /* --- Burger Button Base Styles --- */
+  .burger-btn {
+    display: none; /* Hidden on large screens */
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001; /* Keep it clickable above the menu */
+
+    .line {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      transition: all 0.3s ease;
+    }
+  }
+  /* -------------------------------------- */
 
   .nav-links {
     list-style: none;
@@ -53,6 +72,59 @@ $nav-bg: rgba(255, 255, 255, 0.95); // Slightly transparent white
       &:hover {
         background-color: color.adjust($primary-color, $lightness: -10%);
         color: white;
+      }
+    }
+  }
+}
+
+/* --- Mobile Responsive Breakpoint --- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px; /* Reduce padding for smaller phone screens */
+
+    /* 1. Show the hamburger button */
+    .burger-btn {
+      display: flex;
+    }
+
+    /* 2. Restructure the links into a dropdown */
+    .nav-links {
+      position: absolute;
+      margin-top: 0;
+      padding-left: 0;
+      top: 70px; /* Pushes the menu exactly below 70px tall navbar */
+      left: 0;
+      width: 100%;
+      background-color: $nav-bg;
+      backdrop-filter: blur(5px); /* Carries over glass effect */
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+      /* The Slide-Down Magic */
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+
+      /* 3. When Angular adds this class, the menu opens */
+      &.mobile-active {
+        max-height: 400px; /* Must be larger than the total height of the links */
+      }
+
+      /* Adjusting link padding for mobile touch targets */
+      a {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+        text-align: center;
+        border-top: 1px solid rgba(0,0,0,0.05);
+      }
+
+      /* Fixing the contact button spacing on mobile */
+      .btn-contact {
+        margin: 15px 0;
+        display: inline-block;
+        width: auto;
       }
     }
   }
